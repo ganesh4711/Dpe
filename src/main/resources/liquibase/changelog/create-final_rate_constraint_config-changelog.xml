@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+    <changeSet id="create-final_rate_constraint_config-changelog" author="admin">
+        <createTable tableName="final_rate_constraint_config">
+            <column name="id" type="int" autoIncrement="true"><constraints primaryKey="true"></constraints></column>
+            <column name="rule_assignment_id" type="int"><constraints nullable="false" referencedTableName="rule_assignment" referencedColumnNames="id" foreignKeyName="fk_rule_assignment_final_rate_constraint_config"></constraints> </column>
+            <column name="min_mileage" type="decimal" ><constraints nullable="false"></constraints> </column>
+            <column name="max_mileage" type="decimal"><constraints nullable="false"></constraints> </column>
+            <column name="target_pay" type="decimal"><constraints nullable="false"></constraints> </column>
+            <column name="max_buy" type="decimal"><constraints nullable="false"></constraints> </column>
+            <column name="created_userid" type="int" ><constraints nullable="true"></constraints> </column>
+            <column name="created_at" type="DATETIME" defaultValueComputed="NOW()" ><constraints nullable="false"></constraints> </column>
+            <column name="updated_userid" type="int"><constraints nullable="true"></constraints> </column>
+            <column name="updated_at" type="DATETIME" defaultValueComputed="NOW()"><constraints nullable="false"></constraints> </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="final_rate_constraint_config"></dropTable>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

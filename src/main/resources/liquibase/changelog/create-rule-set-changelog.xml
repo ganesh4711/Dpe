@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="create-rule-set-changelog" author="admin">
+        <createTable tableName="rule_set">
+            <column name="id" type="int" autoIncrement="true"><constraints primaryKey="true" /></column>
+            <column name="name" type="varchar(15)"><constraints nullable="false"/></column>
+            <column name="description" type="varchar(255)"><constraints nullable="true"/></column>
+            <column name="status" type="tinyint"><constraints nullable="false"/></column>
+            <column name="created_userid" type="int"><constraints nullable="true"/></column>
+            <column name="created_at" type="DATETIME"  defaultValueComputed="NOW()"><constraints nullable="false"/></column>
+            <column name="apply_from" type="DATETIME"><constraints nullable="true"/></column>
+            <column name="apply_to" type="DATETIME" ><constraints nullable="true"/></column>
+            <column name="updated_userid" type="int"><constraints nullable="true"/></column>
+            <column name="updated_at" type="DATETIME" defaultValueComputed="NOW()"><constraints nullable="false"/></column>
+            <column name="activated_userid" type="int" ><constraints nullable="true"></constraints></column>
+            <column name="activated_at" type="DATETIME" defaultValueComputed="NOW()"><constraints nullable="true"/></column>
+            <column name="archive_userid" type="int"><constraints nullable="true"/></column>
+            <column name="archived_at" type="DATETIME"><constraints nullable="true"/></column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="rule_set"></dropTable>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

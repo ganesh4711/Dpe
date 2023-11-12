@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="create-rule-assignment-change-log" author="admin">
+        <createTable tableName="rule_assignment">
+            <column name="id" type="int" autoIncrement="true"><constraints nullable="false" primaryKey="true"/></column>
+            <column name="rule_id" type="int" ><constraints nullable="false" foreignKeyName="fk_rule_rule_assignment" referencedTableName="rules" referencedColumnNames="id"/></column>
+            <column name="rule_set_id" type="int"><constraints nullable="false" foreignKeyName="fk_rule_set_rule_assignment"  referencedTableName="rule_set" referencedColumnNames="id"/></column>
+            <column name="created_userid" type="int"><constraints nullable="true"/></column>
+            <column name="created_at" type="DATETIME" defaultValueComputed="NOW()"  ><constraints nullable="false"/></column>
+            <column name="updated_userid" type="int"><constraints nullable="true"/></column>
+            <column name="updated_at" type="DATETIME" defaultValueComputed="NOW()"><constraints nullable="false"/></column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="rule_assignment"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

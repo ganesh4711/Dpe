@@ -1,0 +1,49 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="admin" id="1">
+
+
+        <insert tableName="rate_source">
+            <column name="name" value= "DAT" />
+            <column name="code" value="DAT" />
+            <column name="description" value="Rate source from DAT" />
+            <column name="rate_field" value="0,1,2" />
+            <column name="rate_duration" value="7,15,30,45,90.180,270,365" />
+            <column name="created_userid" value="1" />
+            <column name="created_at" valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="rate_source">
+            <column name="name" value= "SONAR" />
+            <column name="code" value="SONAR" />
+            <column name="description" value="Rate source from SONAR" />
+            <column name="rate_field" value="0,1,2" />
+            <column name="rate_duration" value="365" />
+            <column name="created_userid" value="1" />
+            <column name="created_at" valueDate="NOW()" />
+        </insert>
+
+
+
+        <insert tableName="rate_source">
+            <column name="name" value= "TruckStop" />
+            <column name="code" value="TruckStop" />
+            <column name="description" value="Rate source from TruckStop paid" />
+            <column name="rate_field" value="0,1,2" />
+            <column name="rate_duration" value="365" />
+            <column name="created_userid" value="1" />
+            <column name="created_at" valueDate="NOW()" />
+        </insert>
+
+
+
+    </changeSet>
+
+</databaseChangeLog>

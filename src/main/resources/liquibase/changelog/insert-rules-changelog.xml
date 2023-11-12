@@ -1,0 +1,111 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="admin" id="1">
+
+        <insert tableName="rules">
+<!--            <column name="id" valueNumeric="1" />-->
+            <column name="name" value="Base Rate" />
+            <column name="code" value="BaseRate" />
+            <column name="description" value="Rule of BaseRate" />
+            <column name="rule_type" valueNumeric="1" />
+            <column name="status" valueNumeric="1" />
+            <column name="is_required"  valueBoolean="true"/>
+            <column name="created_userid" value="1" />
+            <column name="created_at" valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="rules">
+<!--            <column name="id" valueNumeric="2" />-->
+            <column name="name" value="Calendar Adjustment Rate" />
+            <column name="code" value="CalendarAdjustmentRate" />
+            <column name="description" value="Rule of CalendarAdjustmentRate" />
+            <column name="rule_type" valueNumeric="2" />
+            <column name="status" valueNumeric="1" />
+            <column name="created_userid" value="1" />
+            <column name="is_required"  valueBoolean="false"/>
+            <column name="created_userid" value="1" />
+            <column name="created_at" valueDate="NOW()" />
+        </insert>
+            <insert tableName="rules">
+<!--            <column name="id" valueNumeric="3" />-->
+            <column name="name" value="Base Rate Constraint" />
+            <column name="code" value="BaseRateConstraint" />
+            <column name="description" value="Rule of BaseRate Constraint" />
+            <column name="rule_type" valueNumeric="3" />
+            <column name="status" valueNumeric="1" />
+                <column name="is_required"  valueBoolean="false"/>
+            <column name="created_userid" value="1" />
+            <column name="created_at" valueDate="NOW()" />
+        </insert>
+        <insert tableName="rules">
+<!--            <column name="id" valueNumeric="4" />-->
+            <column name="name" value="Primary Base Rate Adjustment" />
+            <column name="code" value="PrimaryBaseRateAdjustment" />
+            <column name="description" value="Global Rule of BaseRate" />
+            <column name="rule_type" valueNumeric="4" />
+            <column name="status" valueNumeric="1" />
+            <column name="created_userid" value="1" />
+            <column name="is_required"  valueBoolean="false"/>
+            <column name="created_at" valueDate="NOW()" />
+        </insert>
+            <insert tableName="rules">
+<!--            <column name="id" valueNumeric="5" />-->
+            <column name="name" value="Geography Adjustment Rate" />
+            <column name="code" value="GeographyAdjustmentRate" />
+            <column name="description" value="Geography Rule" />
+                <column name="is_required"  valueBoolean="false"/>
+                <column name="created_userid" value="1" />
+            <column name="rule_type" valueNumeric="5" />
+            <column name="status" valueNumeric="1" />
+            <column name="created_at" valueDate="NOW()" />
+
+        </insert>
+        <insert tableName="rules">
+<!--            <column name="id" valueNumeric="6" />-->
+            <column name="name" value="Shipper Sell Price" />
+            <column name="code" value="SellPriceAdjustmentRate" />
+            <column name="description" value="SellPrice Rule" />
+            <column name="rule_type" valueNumeric="6" />
+            <column name="status" valueNumeric="1" />
+            <column name="created_userid" value="1" />
+            <column name="is_required"  valueBoolean="false"/>
+            <column name="created_at" valueDate="NOW()" />
+        </insert>
+        <insert tableName="rules">
+<!--            <column name="id" valueNumeric="7" />-->
+            <column name="name" value="Final Rate Constraint" />
+            <column name="code" value="FinalRateConstraint" />
+            <column name="description" value="FinalRateConstraint" />
+            <column name="rule_type" valueNumeric="7" />
+            <column name="status" valueNumeric="1" />
+            <column name="created_userid" value="1" />
+            <column name="is_required"  valueBoolean="false"/>
+            <column name="created_at" valueDate="NOW()" />
+    </insert>
+        <insert tableName="rules">
+<!--            <column name="id" valueNumeric="8" />-->
+            <column name="name" value="Accessorial Adjustment Rate" />
+            <column name="code" value="AccessorialAdjustmentRate" />
+            <column name="description" value="AccessorialAdjustmentRate" />
+            <column name="rule_type" valueNumeric="8" />
+            <column name="status" valueNumeric="1" />
+            <column name="created_userid" value="1" />
+            <column name="is_required"  valueBoolean="false"/>
+            <column name="created_at" valueDate="NOW()" />
+
+        </insert>
+
+    </changeSet>
+    <changeSet id="alter-accessorial-ruletype" author="admin">
+        <update tableName="rules"><column name="rule_type" value="0"/><where>name ='Accessorial Adjustment Rate'</where>
+        </update>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,38 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="admin" id="create-geo-zip-table">
+        <createTable tableName="geo_zip">
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="latitude" type="decimal(9,6)">
+                <constraints nullable="false" />
+            </column>
+            <column name="longitude" type="decimal(9,6)">
+                <constraints nullable="false" />
+            </column>
+            <column name="created_userid" type="VARCHAR(50)">
+                <constraints nullable="false"/> </column>
+            <column name="updated_userid" type="VARCHAR(50)">
+                <constraints nullable="true"/> </column>
+            <column name="created_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/> </column>
+            <column name="updated_at" type="timestamp">
+                <constraints nullable="true"/> </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="geo_zip" />
+        </rollback>
+    </changeSet>
+
+    <changeSet author="admin" id="add-pk-geo-zip-table">
+        <addPrimaryKey columnNames="code"
+                       constraintName="pk_geo_zip_table"
+                       tableName="geo_zip"
+        />
+    </changeSet>
+
+</databaseChangeLog>

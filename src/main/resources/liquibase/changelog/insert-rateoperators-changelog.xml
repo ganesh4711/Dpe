@@ -1,0 +1,78 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="admin" id="1">
+
+        <insert tableName="rate_operator">
+            <column name="name" value="Minimum" />
+            <column name="code" value="1" />
+            <column name="description" value="Minimum rate operator" />
+            <column name="applicable_for" valueNumeric="1" />
+            <column name="created_userid" value="1" />
+            <column name="created_at" valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="rate_operator">
+            <column name="name" value="Maximum" />
+            <column name="code" value="2" />
+            <column name="description" value="Maximum rate operator" />
+            <column name="applicable_for" valueNumeric="1" />
+            <column name="created_userid" value="1" />
+            <column name="created_at" valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="rate_operator">
+            <column name="name" value="Percentage" />
+            <column name="code" value="3" />
+            <column name="description" value="Percentage rate operator" />
+            <column name="applicable_for" valueNumeric="1" />
+            <column name="created_userid" value="1" />
+            <column name="created_at" valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="rate_operator">
+            <column name="name" value="Average" />
+            <column name="code" value="4" />
+            <column name="description" value="Average rate operator" />
+            <column name="applicable_for" valueNumeric="1" />
+            <column name="created_userid" value="1" />
+            <column name="created_at" valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="rate_operator">
+            <column name="name" value="Flat Rate" />
+            <column name="code" value="5" />
+            <column name="description" value="Flat rate operator" />
+            <column name="applicable_for" valueNumeric="2" />
+            <column name="created_userid" value="1" />
+            <column name="created_at" valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="rate_operator">
+            <column name="name" value="Percentage" />
+            <column name="code" value="6" />
+            <column name="description" value="Adjustment Percentage" />
+            <column name="applicable_for" valueNumeric="2" />
+            <column name="created_userid" value="1" />
+            <column name="created_at" valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="rate_operator">
+            <column name="name" value="Rate Per Mile" />
+            <column name="code" value="7" />
+            <column name="description" value="Rate per mile Operator" />
+            <column name="applicable_for" valueNumeric="2" />
+            <column name="created_userid" value="1" />
+            <column name="created_at" valueDate="NOW()" />
+        </insert>
+
+
+    </changeSet>
+
+</databaseChangeLog>

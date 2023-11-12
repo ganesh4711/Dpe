@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="create-rate-equipment-type-changelog" author="admin">
+    <createTable tableName="rate_equipment_type">
+
+        <column name="id" type="int" autoIncrement="true"><constraints nullable="false" primaryKey="true"/></column>
+        <column name="rule_id" type="int" ><constraints nullable="false" foreignKeyName="fk_rule_rate_equipment_type" referencedTableName="rules" referencedColumnNames="id"/> </column>
+        <column name="rate_config_id" type="int"><constraints nullable="false"/> </column>
+        <column name="equipment_type" type="tinyint"><constraints nullable="false"/> </column>
+        <column name="deleted_at" type="DATETIME"><constraints nullable="true"/> </column>
+        <column name="created_userid" type="int"><constraints nullable="true"/></column>
+        <column name="created_at" type="DATETIME" defaultValueComputed="NOW()" ><constraints nullable="false"/> </column>
+        <column name="updated_userid" type="int"><constraints nullable="true"/></column>
+        <column name="updated_at" type="DATETIME" defaultValueComputed="NOW()"><constraints nullable="false"/></column>
+    </createTable>
+        <rollback>
+            <dropTable tableName="rate_equipment_type"/>
+        </rollback>
+</changeSet>
+</databaseChangeLog>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+<changeSet id="lane_rate_history-changelog.xml" author="admin">
+    <createTable tableName="lane_rate_history">
+        <column name="id" type="int" autoIncrement="true" ><constraints primaryKey="true" /></column>
+        <column name="origin_zip" type="varchar(15)"><constraints nullable="false"></constraints> </column>
+        <column name="destination_zip" type="varchar(15)"><constraints nullable="false"></constraints> </column>
+        <column name="equipment_type" type="tinyint"><constraints nullable="false"></constraints> </column>
+        <column name="origin_city" type="varchar(25)"><constraints nullable="true"></constraints> </column>
+        <column name="origin_state" type="varchar(25)"><constraints nullable="true"></constraints> </column>
+        <column name="destination_city" type="varchar(25)"><constraints nullable="true"></constraints> </column>
+        <column name="destination_state" type="varchar(25)"><constraints nullable="true"></constraints> </column>
+        <column name="rate_source" type="varchar(15)"><constraints nullable="true"></constraints> </column>
+        <column name="duration" type="int"><constraints nullable="true"></constraints> </column>
+        <column name="target_rate" type="decimal"><constraints nullable="true"></constraints> </column>
+        <column name="avg_rate" type="decimal"><constraints nullable="true"></constraints> </column>
+        <column name="max_rate" type="decimal"><constraints nullable="true"></constraints> </column>
+        <column name="miles" type="decimal"><constraints nullable="true"></constraints> </column>
+        <column name="fuel_surcharge" type="decimal"><constraints nullable="true"></constraints> </column>
+        <column name="created_userid" type="int"><constraints nullable="true"></constraints> </column>
+        <column name="created_at" type="DATETIME" defaultValueComputed="NOW()"><constraints nullable="false"></constraints> </column>
+        <column name="cache_date" type="DATETIME"><constraints nullable="false"></constraints> </column>
+        <column name="updated_at" type="DATETIME"><constraints nullable="true"></constraints></column>
+        <column name="updated_userid" type="int"><constraints nullable="true"></constraints> </column>
+        <column name="meta_data" type="varchar(255)"><constraints nullable="true"></constraints> </column>
+    </createTable>
+    <rollback>
+        <dropTable tableName="lane_rate_history"></dropTable>
+    </rollback>
+</changeSet>
+</databaseChangeLog>

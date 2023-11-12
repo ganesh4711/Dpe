@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+    <changeSet id="create-calendar_adjustment_rate_configuration-changelog" author="admin">
+        <createTable tableName="calendar_adjustment_rate_configuration">
+            <column name="id" type="int"  autoIncrement="true"><constraints  primaryKey="true" ></constraints> </column>
+            <column name="rule_assignment_id" type="int" >
+                <constraints nullable="false" foreignKeyName="fk_rule_assignment_calendar_adjustment_rate_configuration" referencedTableName="rule_assignment" referencedColumnNames="id"></constraints> </column>
+            <column name="rate_operator_id" type="int"><constraints foreignKeyName="rate_operator_calendar_adjustment_rate_configuration" referencedTableName="rate_operator" referencedColumnNames="id"></constraints> </column>
+            <column name="adjustment_value" type="decimal"><constraints nullable="false"></constraints> </column>
+            <column name="description" type="varchar(255)"><constraints nullable="true"></constraints> </column>
+            <column name="calender_adjustment_rule_type" type="tinyint"><constraints nullable="false"></constraints> </column>
+            <column name="apply_from" type="DATETIME" ><constraints nullable="true"></constraints></column>
+            <column name="apply_to" type="DATETIME"><constraints nullable="true"></constraints> </column>
+            <column name="calender_adjustment_stop_type" type="tinyint"><constraints nullable="false"></constraints> </column>
+            <column name="day_of_the_week" type="tinyint"><constraints nullable="true"></constraints> </column>
+            <column name="created_userid" type="int"><constraints nullable="true"></constraints> </column>
+            <column name="created_at" type="DATETIME" defaultValueComputed="NOW()" ><constraints nullable="false"></constraints> </column>
+            <column name="updated_userid" type="int"><constraints nullable="true"></constraints> </column>
+            <column name="updated_at" type="DATETIME" defaultValueComputed="NOW()"><constraints nullable="false"></constraints> </column>
+        </createTable>
+        <rollback><dropTable tableName="calendar_adjustment_rate_configuration>"></dropTable></rollback>
+    </changeSet>
+</databaseChangeLog>

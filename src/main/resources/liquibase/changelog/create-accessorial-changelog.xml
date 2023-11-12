@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+    <changeSet id="create-accessorial-changelog" author="admin">
+        <createTable tableName="accessorial">
+            <column name="id" type="int" autoIncrement="true"><constraints primaryKey="true" ></constraints></column>
+            <column name="accessorial_name" type="varchar(255)"><constraints nullable="false"></constraints></column>
+            <column name="code" type="varchar(250)"><constraints nullable="false"></constraints></column>
+            <column name="created_at" type="DATETIME"  defaultValueComputed="NOW()"><constraints nullable="false"></constraints></column>
+            <column name="created_userid" type="int"><constraints nullable="true"></constraints> </column>
+            <column name="updated_userid" type="int"><constraints nullable="true"></constraints></column>
+            <column name="updated_at" type="DATETIME" defaultValueComputed="NOW()"><constraints nullable="false"></constraints></column>
+            <column name="deleted_at" type="DATETIME"><constraints nullable="true"></constraints></column>
+        </createTable>
+    </changeSet>
+    <changeSet id="add-unique-constraint-code" author="admin">
+        <addUniqueConstraint tableName="accessorial" columnNames="code"/>
+    </changeSet>
+    <changeSet id="drop-unique-column-name" author="admin">
+        <dropUniqueConstraint  constraintName="accessorial_code_key" tableName="accessorial" uniqueColumns="code"></dropUniqueConstraint>
+    </changeSet>
+</databaseChangeLog>
